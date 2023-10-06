@@ -1,0 +1,152 @@
+% Remark that <notes> will create a notes preamble...
+\documentclass{report}
+
+
+\input{preamble}
+\input{macros}
+\input{letterfonts}
+\newtheorem*{remark*}{Example}
+
+%%%%%%%%%%%%%%%%%%%%%%
+
+% Misc
+%%%%%%%%%%%%%%%%%%%%%%
+\newtheorem{plain}{Symbol}
+%%%%%%%%%%%%%%%%%%%%%%
+
+\title{title}
+\author{randyrtt}
+\begin{document}
+\begin{sloppypar}
+  \section{Problem name and description}%
+  \label{sec:name}
+  \begin{enumerate}
+    \item \textbf{Problem Name.} \href{https://crackmes.one/crackme/646627a933c5d439389131d9}{\texttt{level1}} by \texttt{sudo0x18}
+    \item \textbf{Description.} This is a text-based program written in a C/C++ family language. Whenever you execute the program (called \texttt{level1}), you are prompted to put in a password, which presumably has two outcomes: success and failure.
+  \end{enumerate}
+
+  \section{General Approach}%
+  \label{sec:General Approach}
+  Given the fact that the program is CLI-based as well as
+  written in a C-family language, I intuitively just want to disassemble
+  the program using \texttt{gdb} and just walk through the call stack, since
+  it seems like it's just a simple string comparison program. \\
+  Here is just a list of what I did:
+  \begin{enumerate}
+    \item Obtained filetype for the binary as well as printable strings
+          within the binary
+    \item Ran the program through \texttt{gdb}, creating breakpoints
+          at the password checking function.
+    \item Analyzed the disassembled instructions.
+  \end{enumerate}
+
+
+  \section{Prerequisite Knowledge + Keywords}%
+  \label{sec:Prerequisite Knowledge}
+  \begin{enumerate}
+    \item Basic knowledge of \texttt{asm} language and
+    \item Basic commands such as \texttt{mov} , \texttt{cmp} , \texttt{j} , and \texttt{call}
+
+    \item \textbf{Keywords.} String comparison
+  \end{enumerate}
+
+  \subsection{Tools Used:}%
+  \label{subsec:label}
+  \begin{enumerate}
+    \item \textbf{Disassembler.} \texttt{gdb} (GNU Debugger) or some other program like Ghidra, IDA Pro, etc.
+  \end{enumerate}
+  \section{Walkthrough}%
+  \label{sec:Walkthrough}
+  \subsection{Step $-1$: Running Malware Analysis Commands}%
+  \label{subsec:Step0}
+  As per the advice of other users, it appears that principally it maybe helpful to run a compiled program through the following commands:
+  \begin{enumerate}
+    \item \texttt{md5sum}: Hashing command that executes that
+          \textbf{Message Digest 5} hashing algorithm directly
+          on the compiled program's binary, which will return some value. in
+          the world of malware analysis, compare this hash with what
+          the original program author deems as the original hash
+          for the program. Different hashes $\Rightarrow$ tampering.
+    \item \texttt{sha1sum}: Hashing command that executes the \textbf{Secure
+          Hash 1} cryptographic algorithm. Same principle as \texttt{md5sum}.
+  \end{enumerate}
+  Nothing interesting there.
+
+  \subsection{Step 0: Getting Metadata on File}%
+  \label{subsec:label}
+  Now, we can actually do helpful things. First thing that I want to do is
+  checkout the \textbf{filetype} of the file, as well as look at any
+  strings that are encoded within the file.
+  \begin{enumerate}
+    \item \textbf{Check filetype.} I used the \texttt{file} command in Linux
+          and found that \texttt{level1} is a ELF 64-bit
+          binary, which is pretty typical for all Linux
+          executables.
+    \item \textbf{Find printable strings within binary.} used the \texttt{strings} command to find all notable strings within the binary.
+  \end{enumerate}
+  Notable things that I got from this process are that
+  I can can see not only the prompt for putting in password, but I also
+  see the prompts for when I get the password correct or incorrect. Notable
+  functions also included in the binary are \texttt{main}  and \texttt{checkPass}, which of course, likely refers to checking the password
+  that I put in. \texttt{gdb} time.
+
+  \subsection{Step 1: Running the program through \texttt{gdb}}%
+  \label{subsec:label}
+  My initial idea was to just run \texttt{gdb} and create a breakpoint at
+  the function \texttt{checkPass} and see what happens whenever we type
+  in an incorrect password.
+  \\ \\ I used the following commands:
+  \begin{center}
+    \texttt{\$ gdb level1} \\
+    \texttt{gdb> b checkPass} \\
+    \texttt{gdb> run}
+  \end{center}
+  \subsection{Step 2: Running through instructions using \texttt{disassemble} and \texttt{ni}  }%
+  \label{subsec:label}
+  \\ Whenever I break in the \texttt{checkPass} function, I decide
+  to step through the instructions by using the \texttt{ni} (next instruction)
+  command. After stepping through the function quite a bit, I get the following
+  intuitions:
+  \begin{enumerate}
+    \item Whenever \texttt{checkPass} is called, our input is presumably
+          passed from \texttt{\%rax} into \texttt{\%rdi}
+    \item We are checking characters of the string \textit{individually},
+          since we can observe the usage of the \texttt{cmp}  and the \texttt{jne} commands.
+    \item It makes sense that if the comparison doesn't work, that \texttt{checkPass} returns a \texttt{false}, which signals to \texttt{main}
+          that an incorrect password was inputted.
+  \end{enumerate}
+  The following \texttt{cmp} statements are made, with their corresponding
+  letter:
+  \begin{center}
+    \texttt{cmp AL, 0x73} $\Rightarrow$ s \\
+    \texttt{cmp AL, 0x75} $\Rightarrow$ u \\
+    \texttt{cmp AL, 0x64} $\Rightarrow$ d \\
+    \texttt{cmp AL, 0x6f} $\Rightarrow$ o \\
+    \texttt{cmp AL, 0x30} $\Rightarrow$ 0 \\
+    \texttt{cmp AL, 0x78} $\Rightarrow$ x\\
+    \texttt{cmp AL, 0x31} $\Rightarrow$ 1\\
+    \texttt{cmp AL, 0x38} $\Rightarrow$ 8 \\
+  \end{center}
+  Of course, this means that the password must be \texttt{sudo0x18}, which
+  is correct.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{sloppypar}
+\end{document}

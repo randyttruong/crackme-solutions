@@ -1,0 +1,79 @@
+\contentsline {chapter}{\numberline {1}Lecture 01: Syllabus (09/19/23)}{4}{chapter.1}%
+\contentsline {chapter}{\numberline {2}Lecture 02: Privacy Conceptions and Frameworks (09/21/23)}{5}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Announcements}{5}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Objectives}{5}{section.2.2}%
+\contentsline {section}{\numberline {2.3}What makes an organization good at privacy?}{5}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Fair Information Principles}{6}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Core Principles of Fair Privacy}{6}{section.2.5}%
+\contentsline {subsection}{\numberline {2.5.1}Is it possible to abide by all of these principles?}{6}{subsection.2.5.1}%
+\contentsline {subsection}{\numberline {2.5.2}Does choice imply utility?}{7}{subsection.2.5.2}%
+\contentsline {section}{\numberline {2.6}GDPR}{7}{section.2.6}%
+\contentsline {subsection}{\numberline {2.6.1}Defines data protection principles}{7}{subsection.2.6.1}%
+\contentsline {subsection}{\numberline {2.6.2}Data security}{7}{subsection.2.6.2}%
+\contentsline {subsection}{\numberline {2.6.3}Data protection by design \textbf {and} default}{7}{subsection.2.6.3}%
+\contentsline {subsection}{\numberline {2.6.4}Defines when personal data is allowed to be processed}{7}{subsection.2.6.4}%
+\contentsline {subsection}{\numberline {2.6.5}Consent}{7}{subsection.2.6.5}%
+\contentsline {section}{\numberline {2.7}Faults in GDPR}{7}{section.2.7}%
+\contentsline {subsection}{\numberline {2.7.1}Perceptions of GDPR}{7}{subsection.2.7.1}%
+\contentsline {subsection}{\numberline {2.7.2}Privacy Framework: HIPAA}{8}{subsection.2.7.2}%
+\contentsline {subsection}{\numberline {2.7.3}Privacy Laws in the US}{8}{subsection.2.7.3}%
+\contentsline {section}{\numberline {2.8}Computational Privacy}{8}{section.2.8}%
+\contentsline {subsection}{\numberline {2.8.1}What about anonymized datasets?}{8}{subsection.2.8.1}%
+\contentsline {section}{\numberline {2.9}Takeaways}{8}{section.2.9}%
+\contentsline {chapter}{\numberline {3}Lecture 03: Database Anonymization (09/26/23)}{9}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Last Lecture}{9}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Objectives}{9}{section.3.2}%
+\contentsline {section}{\numberline {3.3}There are two paradigms to releasing data}{9}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Interactive}{9}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Non-interactive}{9}{subsection.3.3.2}%
+\contentsline {section}{\numberline {3.4}Expanding on Non-interactie data releases}{9}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Examples of Non-Interactive Data Releases}{9}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2}Non-interactive linking}{10}{subsection.3.4.2}%
+\contentsline {section}{\numberline {3.5}Threat Models}{10}{section.3.5}%
+\contentsline {subsection}{\numberline {3.5.1}Auxilary Database Example}{10}{subsection.3.5.1}%
+\contentsline {section}{\numberline {3.6}Anonymization Solutions}{10}{section.3.6}%
+\contentsline {subsection}{\numberline {3.6.1}Attempt 1: K-Anonymity}{10}{subsection.3.6.1}%
+\contentsline {section}{\numberline {3.7}Example of K-Anonymity}{10}{section.3.7}%
+\contentsline {subsection}{\numberline {3.7.1}Two Approaches}{10}{subsection.3.7.1}%
+\contentsline {section}{\numberline {3.8}Attacks on k-anonymity}{10}{section.3.8}%
+\contentsline {section}{\numberline {3.9}Attempt 2: Improvements of k-anonymity}{11}{section.3.9}%
+\contentsline {subsection}{\numberline {3.9.1}How can we $l$ diversify a k-anonymized table?}{11}{subsection.3.9.1}%
+\contentsline {subsection}{\numberline {3.9.2}Attacks on $l$-diveristy}{11}{subsection.3.9.2}%
+\contentsline {section}{\numberline {3.10}Attempt 3: $t$-closeness}{11}{section.3.10}%
+\contentsline {chapter}{\numberline {4}Lecture 04: introduction to differential privacy}{12}{chapter.4}%
+\contentsline {section}{\numberline {4.1}announcements}{12}{section.4.1}%
+\contentsline {section}{\numberline {4.2}recap}{12}{section.4.2}%
+\contentsline {section}{\numberline {4.3}objectives}{12}{section.4.3}%
+\contentsline {section}{\numberline {4.4}de-anonymization attacks}{12}{section.4.4}%
+\contentsline {section}{\numberline {4.5}attacking noise-adding functions}{13}{section.4.5}%
+\contentsline {section}{\numberline {4.6}what are the impacts of the netflix-imdb data leak?}{13}{section.4.6}%
+\contentsline {section}{\numberline {4.7}introduction to differential privacy}{13}{section.4.7}%
+\contentsline {subsection}{\numberline {4.7.1}more attacks in the non-interactive seting}{13}{subsection.4.7.1}%
+\contentsline {subsection}{\numberline {4.7.2}case study}{13}{subsection.4.7.2}%
+\contentsline {subsection}{\numberline {4.7.3}solution}{13}{subsection.4.7.3}%
+\contentsline {subsection}{\numberline {4.7.4}what is the ``differential'' mean?}{14}{subsection.4.7.4}%
+\contentsline {subsection}{\numberline {4.7.5}formal definition of differnetila privacy}{14}{subsection.4.7.5}%
+\contentsline {section}{\numberline {4.8}more on $\varepsilon $}{14}{section.4.8}%
+\contentsline {section}{\numberline {4.9}inclass exercise}{14}{section.4.9}%
+\contentsline {section}{\numberline {4.10}noise functions}{14}{section.4.10}%
+\contentsline {subsection}{\numberline {4.10.1}what is the laplace distribution?}{14}{subsection.4.10.1}%
+\contentsline {subsection}{\numberline {4.10.2}global sensitivity}{15}{subsection.4.10.2}%
+\contentsline {section}{\numberline {4.11}dp vs anonymizatoin}{15}{section.4.11}%
+\contentsline {subsection}{\numberline {4.11.1}dp}{15}{subsection.4.11.1}%
+\contentsline {subsection}{\numberline {4.11.2}anonymizatoin}{15}{subsection.4.11.2}%
+\contentsline {section}{\numberline {4.12}final remarks}{15}{section.4.12}%
+\contentsline {section}{\numberline {4.13}next time}{15}{section.4.13}%
+\contentsline {chapter}{\numberline {5}Lecture 05:}{16}{chapter.5}%
+\contentsline {chapter}{\numberline {6}Lecture 06:}{17}{chapter.6}%
+\contentsline {chapter}{\numberline {7}Lecture 07:}{18}{chapter.7}%
+\contentsline {chapter}{\numberline {8}Lecture 08:}{19}{chapter.8}%
+\contentsline {chapter}{\numberline {9}Lecture 09:}{20}{chapter.9}%
+\contentsline {chapter}{\numberline {10}Lecture 10:}{21}{chapter.10}%
+\contentsline {chapter}{\numberline {11}Lecture 11:}{22}{chapter.11}%
+\contentsline {chapter}{\numberline {12}Lecture 12:}{23}{chapter.12}%
+\contentsline {chapter}{\numberline {13}Lecture 13:}{24}{chapter.13}%
+\contentsline {chapter}{\numberline {14}Lecture 14:}{25}{chapter.14}%
+\contentsline {chapter}{\numberline {15}Lecture 15:}{26}{chapter.15}%
+\contentsline {chapter}{\numberline {16}Lecture 16:}{27}{chapter.16}%
+\contentsline {chapter}{\numberline {17}Lecture 17:}{28}{chapter.17}%
+\contentsfinish 
